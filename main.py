@@ -97,19 +97,9 @@ def download_images(images, folder_name):
 def main(url, chapter_number):
     # content of URL
     r = requests.get(url)
-    '''
-    #print('r.text - ', r.text)
-    with open(f"r.txt", "w") as f:
-        f.write(r.text)
-    '''
 
     # Parse HTML Code
     soup = BeautifulSoup(r.text, 'html.parser')
-    '''
-    #print('soup - ', soup)
-    with open(f"soup.txt", "w") as f:
-        f.write(soup.text)
-    '''
 
     # find all images in URL
     images = soup.findAll('img')
