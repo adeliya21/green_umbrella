@@ -36,7 +36,6 @@ for folder in folders:
 
     pdf.output(f"pdf_folder/{folder}.pdf","F")
 
-
 dir = os.listdir("pdf_folder/")
     if (len(dir) != 0):
         print(f'pdf_folder has {len(dir)} elements:')
