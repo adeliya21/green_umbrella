@@ -43,5 +43,3 @@ dir = os.listdir("pdf_folder/")
         print(f'{dir}')
     else:
         print('pdf_folder is empty')
-
-

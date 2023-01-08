@@ -152,4 +152,3 @@ with open("chapters_url.txt") as f:
         print(chapter_number)
 
         main(url, str(chapter_number))
-
