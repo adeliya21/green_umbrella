@@ -2,6 +2,8 @@ from bs4 import *
 import requests
 import os
 
+
+'''
 # CREATE FOLDER FOR IMAGES
 def folder_create(images, folder_name):
     try:
@@ -16,7 +18,7 @@ def folder_create(images, folder_name):
 
     # image downloading start
     download_images(images, folder_name)
-
+'''
 
 # DOWNLOAD ALL IMAGES FROM THAT URL
 def download_images(images, folder_name):
@@ -116,20 +118,17 @@ def main(url, chapter_number):
     download_images(images, folder_name)
 
 '''
-# Single url method:
-# take url
-url = input("Enter URL:- ")
-
-# CALL MAIN FUNCTION
-main(url)
-'''
-
-'''
-with open("chapters_url.txt") as f:
-    for line in f:
-        url = line.strip()
-        print(f'url - {url}')
-        main(url)
+# Create chapters_url.txt
+main_page_url = 'https://www.baozimh.com/comic/cixing-tutu'
+r = requests.get(main_page_url)
+soup = BeautifulSoup(r.text, 'html.parser')
+chapters = soup.findAll('?')
+for element in chapters:
+    chapter_link = element["?"]
+    r = requests.get(chapter_link).content
+    r = str(r, 'utf-8')
+    with open(f"chapters_url.txt", "wb+") as f:
+        f.write(r)
 '''
 
 with open("chapters_url.txt") as f:
